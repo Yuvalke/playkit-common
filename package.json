@@ -6,11 +6,11 @@
   "author": "Yuval keidar <yuval.keidar@kaltura.com>",
   "scripts": {
     "release": "standard-version",
-    "publish": "git push --follow-tags --no-verify origin master"
+    "publish": "git push --follow-tags --no-verify origin master && conventional-github-releaser -p angular"
   },
   "license": "MIT",
   "devDependencies": {
-    "conventional-github-releaser": "^1.1.12",
+    "conventional-github-releaser": "^2.0.1",
     "standard-version": "^4.0.0"
   }
 }
