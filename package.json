@@ -11,6 +11,6 @@
   "license": "MIT",
   "devDependencies": {
     "conventional-github-releaser": "^2.0.1",
-    "standard-version": "^4.0.0"
+    "standard-version": "^4.2.0"
   }
 }
