@@ -6,7 +6,7 @@
   "author": "Yuval keidar <yuval.keidar@kaltura.com>",
   "scripts": {
     "release": "standard-version",
-    "publish": "git push --follow-tags --no-verify origin master && conventional-github-releaser"
+    "publish": "git push --follow-tags --no-verify origin master && conventional-github-releaser --preset conventionalcommits"
   },
   "license": "MIT",
   "devDependencies": {
