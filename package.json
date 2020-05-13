@@ -1,12 +1,12 @@
 {
   "name": "playkit-common",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "main": "index.js",
   "repository": "https://github.com/Yuvalke/playkit-common.git",
   "author": "Yuval keidar <yuval.keidar@kaltura.com>",
   "scripts": {
     "release": "standard-version",
-    "postrelease": "git push --follow-tags && conventional-github-releaser -p angular"
+    "publish": "git push --follow-tags && conventional-github-releaser -p angular"
   },
   "license": "MIT",
   "devDependencies": {
