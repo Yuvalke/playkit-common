@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.4](https://github.com/Yuvalke/playkit-common/compare/v1.2.3...v1.2.4) (2020-05-13)
+
+
+### Bug Fixes
+
+* sdfsdf ([3012915](https://github.com/Yuvalke/playkit-common/commit/3012915defd226fac2704bfd4111e0f79c8cda97))
+
 ### [1.2.3](https://github.com/Yuvalke/playkit-common/compare/v1.2.2...v1.2.3) (2020-05-13)
 
 
