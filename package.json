@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "conventional-github-releaser": "^2.0.1",
+    "conventional-github-releaser": "^3.1.0",
     "standard-version": "^8.0.0"
   }
 }
