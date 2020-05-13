@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/Yuvalke/playkit-common/compare/v1.1.8...v1.2.0) (2020-05-13)
+
+
+### Features
+
+* **TEST:** dd ([5393574](https://github.com/Yuvalke/playkit-common/commit/539357434fa2f5d8ddfa0eef5d58d36b20b31d5a))
+
+
+### Bug Fixes
+
+* yarn build ([46ede75](https://github.com/Yuvalke/playkit-common/commit/46ede75d1943f1e052b977e948824e6dfe2a667c))
+
 ### [1.1.8](https://github.com/Yuvalke/playkit-common/compare/v1.1.7...v1.1.8) (2020-05-13)
 
 <a name="1.1.7"></a>
