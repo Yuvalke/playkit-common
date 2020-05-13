@@ -6,7 +6,7 @@
   "author": "Yuval keidar <yuval.keidar@kaltura.com>",
   "scripts": {
     "release": "standard-version",
-    "postrelease": "git push --follow-tags && conventional-github-releaser"
+    "postrelease": "git push --follow-tags && conventional-github-releaser -p angular"
   },
   "license": "MIT",
   "devDependencies": {
