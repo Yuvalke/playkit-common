@@ -1,16 +1,21 @@
 {
   "name": "playkit-common",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "main": "index.js",
   "repository": "https://github.com/Yuvalke/playkit-common.git",
   "author": "Yuval keidar <yuval.keidar@kaltura.com>",
   "scripts": {
     "release": "standard-version",
-    "publish": "git push --follow-tags --no-verify origin master && conventional-github-releaser --preset conventionalcommits"
+    "postrelease": "git push --follow-tags && conventional-github-releaser"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "license": "MIT",
   "devDependencies": {
-    "conventional-github-releaser": "^2.0.1",
-    "standard-version": "^4.2.0"
+    "conventional-github-releaser": "^1.1.12",
+    "standard-version": "^4.0.0"
   }
 }
