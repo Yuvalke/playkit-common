@@ -6,7 +6,8 @@
   "author": "Yuval keidar <yuval.keidar@kaltura.com>",
   "scripts": {
     "release": "standard-version",
-    "publish": "git push --follow-tags && conventional-github-releaser -p angular"
+    "publish": "git push --follow-tags && conventional-github-releaser -p angular",
+    "commit:dist": "git add --force --all dist && (git commit -m 'chore: update dist' || exit 0)"
   },
   "license": "MIT",
   "devDependencies": {
