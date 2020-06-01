@@ -46,8 +46,8 @@ jobs:
         - rm package.jsonE
         - rm CHANGELOG.mdE
         - git status
-        - git status
         - git add package.json CHANGELOG.md
+        - git status
         - git commit -m "chore:update dist" -m "[skip ci]"
         - git status
         - git push https://$GH_NOTE_TOKEN@github.com/Yuvalke/playkit-common master
