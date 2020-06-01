@@ -3,7 +3,7 @@ sudo: required
 dist: xenial
 language: node_js
 node_js:
-  - "9.11.1"
+  - "node"
 
 addons:
   chrome: stable
@@ -46,15 +46,6 @@ jobs:
         - rm package.jsonE
         - rm CHANGELOG.mdE
         - yarn run commit:dist
-      deploy:
-        - provider: releases
-          api_key: $GH_NOTE_TOKEN
-          file_glob: true
-          prerelease: true
-          skip_cleanup: true
-          on:
-            branch: master
-            tags: false
-      after_deploy:
+        - git push https://$GH_NOTE_TOKEN@github.com/Yuvalke/playkit-common master
         - currentVersion=$(npx -c 'echo "$npm_package_version"')
         - echo "${currentVersion}"
