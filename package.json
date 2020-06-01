@@ -7,7 +7,7 @@
   "scripts": {
     "release": "standard-version",
     "publish": "git push --follow-tags && conventional-github-releaser -p angular",
-    "commit:dist": "git add package.json && (git commit -m 'chore: update dist' || exit 0)"
+    "commit:dist": "git add package.json CHANGELOG.md && (git commit -m 'chore: update dist' -m '[skip ci]' || exit 0)"
   },
   "license": "MIT",
   "devDependencies": {

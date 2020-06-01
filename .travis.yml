@@ -45,7 +45,9 @@ jobs:
         - sed -iE "s/$currentVersion/$newVersion/g" CHANGELOG.md
         - rm package.jsonE
         - rm CHANGELOG.mdE
+        - git status
         - yarn run commit:dist
+        - git status
         - git push https://$GH_NOTE_TOKEN@github.com/Yuvalke/playkit-common master
         - currentVersion=$(npx -c 'echo "$npm_package_version"')
         - echo "${currentVersion}"
