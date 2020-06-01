@@ -29,7 +29,7 @@ jobs:
   fast_finish: true
   include:
     - stage: Release canary
-      if: (branch = master) AND (type == pull_request) AND commit_message !~ /^chore\(release\)/ AND commit_message !~ /^(chore).*(update dist)$/
+      if: (branch = master) AND commit_message !~ /^chore\(release\)/ AND commit_message !~ /^(chore).*(update dist)$/
       name: "Release canary"
       before_deploy:
         - echo "Run standard-version"
@@ -45,7 +45,7 @@ jobs:
         - sed -iE "s/$currentVersion/$newVersion/g" CHANGELOG.md
         - rm package.jsonE
         - rm CHANGELOG.mdE
-        - npm run commit:dist
+        - yarn run commit:dist
       deploy:
         - provider: releases
           api_key: $GH_NOTE_TOKEN
