@@ -32,6 +32,9 @@ jobs:
       if: (branch = master) AND commit_message !~ /^chore\(release\)/ AND commit_message !~ /^(chore).*(update dist)$/
       name: "Release canary"
       script:
+        - git branch
+        - git checkout master
+        - git branch
         - echo "Run standard-version"
         - yarn run release --prerelease canary --skip.commit=true --skip.tag=true
         - sha=$(git rev-parse --verify --short HEAD)
