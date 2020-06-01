@@ -7,7 +7,7 @@
   "scripts": {
     "release": "standard-version",
     "publish": "git push --follow-tags && conventional-github-releaser -p angular",
-    "commit:dist": "git add --force --all dist && (git commit -m 'chore: update dist' || exit 0)"
+    "commit:dist": "git add --force --all && (git commit -m 'chore: update dist' || exit 0)"
   },
   "license": "MIT",
   "devDependencies": {
