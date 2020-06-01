@@ -50,6 +50,7 @@ jobs:
         - git status
         - git commit -m "chore:update dist" -m "[skip ci]"
         - git status
-        - git push https://$GH_NOTE_TOKEN@github.com/Yuvalke/playkit-common master
+        - git log
+        - git push https://$GH_NOTE_TOKEN@github.com/Yuvalke/playkit-common "master"
         - currentVersion=$(npx -c 'echo "$npm_package_version"')
         - echo "${currentVersion}"
