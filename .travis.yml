@@ -46,6 +46,7 @@ jobs:
         - rm package.jsonE
         - rm CHANGELOG.mdE
         - git status
+        - git status
         - git add package.json CHANGELOG.md
         - git commit -m "chore:update dist" -m "[skip ci]"
         - git status
