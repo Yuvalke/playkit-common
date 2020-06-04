@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.1-canary.13-e632fd2"></a>
+## [1.5.1-canary.13-e632fd2](https://github.com/Yuvalke/playkit-common/compare/v1.5.0...v1.5.1-canary.13-e632fd2) (2020-06-04)
+
+
+### Bug Fixes
+
+* add travis test ([ae83185](https://github.com/Yuvalke/playkit-common/commit/ae83185))
+
+
+
 <a name="1.5.1-canary.11-5086b1c"></a>
 ## [1.5.1-canary.11-5086b1c](https://github.com/Yuvalke/playkit-common/compare/v1.5.0...v1.5.1-canary.11-5086b1c) (2020-06-01)
 

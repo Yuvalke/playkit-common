@@ -1,6 +1,6 @@
 {
   "name": "playkit-common",
-  "version": "1.5.1-canary.11-5086b1c",
+  "version": "1.5.1-canary.13-e632fd2",
   "main": "index.js",
   "repository": "https://github.com/Yuvalke/playkit-common.git",
   "author": "Yuval keidar <yuval.keidar@kaltura.com>",
