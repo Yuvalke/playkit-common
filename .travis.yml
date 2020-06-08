@@ -32,5 +32,5 @@ jobs:
     - stage: Release
       name: "Releasing a new version"
       if: tag IS present
-      after_deploy:
+      script:
         - conventional-github-releaser -t $GH_NOTE_TOKEN
