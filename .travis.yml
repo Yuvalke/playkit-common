@@ -23,37 +23,14 @@ script:
   - yarn install
 
 stages:
-  - Release canary
+  - Release
 
 jobs:
   fast_finish: true
   include:
-    - stage: Release canary
-      if: (branch = master) AND commit_message !~ /^chore\(release\)/ AND commit_message !~ /^(chore).*(update dist)$/
-      name: "Release canary"
-      script:
-        - git branch
-        - git checkout master
-        - git branch
-        - echo "Run standard-version"
-        - yarn run release --prerelease canary --skip.commit=true --skip.tag=true
-        - sha=$(git rev-parse --verify --short HEAD)
-        - echo "Current sha ${sha}"
-        - currentVersion=$(npx -c 'echo "$npm_package_version"')
-        - commitNumberAfterTag=$(git rev-list  `git rev-list --tags --no-walk --max-count=1`..HEAD --count)
-        - echo "Current version ${currentVersion}"
-        - newVersion=$(echo $currentVersion | sed -e "s/canary\.[[:digit:]]/canary.${commitNumberAfterTag}-${sha}/g")
-        - echo "New version ${newVersion}"
-        - sed -iE "s/$currentVersion/$newVersion/g" package.json
-        - sed -iE "s/$currentVersion/$newVersion/g" CHANGELOG.md
-        - rm package.jsonE
-        - rm CHANGELOG.mdE
-        - git status
-        - git add package.json CHANGELOG.md
-        - git status
-        - git commit -m "chore:update dist" -m "[skip ci]"
-        - git status
-        - git log
-        - git push https://$GH_NOTE_TOKEN@github.com/Yuvalke/playkit-common "master" > /dev/null 2>&1
-        - currentVersion=$(npx -c 'echo "$npm_package_version"')
-        - echo "${currentVersion}"
+    # https://docs.travis-ci.com/user/build-stages/deploy-github-releases/
+    - stage: Release
+      name: "Releasing a new version"
+      if: tag IS present
+      after_deploy:
+        - conventional-github-releaser -t $GH_NOTE_TOKEN
