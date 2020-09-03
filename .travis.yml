@@ -37,7 +37,5 @@ jobs:
       deploy:
         provider: script
         script: echo "deploy"
-        on:
-          branch: master
       after_deploy:
         - echo "finish"
