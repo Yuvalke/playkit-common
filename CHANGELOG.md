@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/Yuvalke/playkit-common/compare/v1.8.0...v1.9.0) (2020-09-03)
+
+
+### Features
+
+* add tag deploy ([8ba63e7](https://github.com/Yuvalke/playkit-common/commit/8ba63e72ca66775d03d87bdda2fca26aa7ea14d4))
+
 ## [1.8.0](https://github.com/Yuvalke/playkit-common/compare/v1.7.0...v1.8.0) (2020-09-03)
 
 
