@@ -32,4 +32,4 @@ jobs:
       name: "Releasing a new version"
       if: tag IS present
       script:
-        - conventional-github-releaser -t $GH_NOTE_TOKEN
+        - conventional-github-releaser -p angular -t $GH_NOTE_TOKEN
