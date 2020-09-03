@@ -33,7 +33,7 @@ jobs:
       if: tag IS present
       deploy:
         provider: script
-        script: conventional-github-releaser -t "$GH_NOTE_TOKEN"
+        script: yarn run conventional-github-releaser -t "$GH_NOTE_TOKEN"
         on:
           tags: true
           all_branches: true
