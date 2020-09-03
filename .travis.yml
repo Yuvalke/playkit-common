@@ -34,3 +34,10 @@ jobs:
       if: tag IS present
       before_deploy:
         - conventional-github-releaser -t $GH_NOTE_TOKEN
+      deploy:
+        provider: script
+        script: echo "deploy"
+        on:
+          branch: master
+      after_deploy:
+        - echo "finish"
