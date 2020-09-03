@@ -18,6 +18,9 @@ cache:
 before_install:
   - export DISPLAY=:99.0
 
+script:
+  - yarn install
+
 stages:
   - Release
 
@@ -28,5 +31,9 @@ jobs:
     - stage: Release
       name: "Releasing a new version"
       if: tag IS present
-      script:
-        - conventional-github-releaser -t "$GH_NOTE_TOKEN"
+      deploy:
+        provider: script
+        script: conventional-github-releaser -t "$GH_NOTE_TOKEN"
+        on:
+          tags: true
+          all_branches: true
