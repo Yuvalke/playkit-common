@@ -1,6 +1,18 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.6.0](https://github.com/Yuvalke/playkit-common/compare/v1.5.4...v1.6.0) (2020-09-03)
+
+
+### Features
+
+* remove yuval.js ([cb875cb](https://github.com/Yuvalke/playkit-common/commit/cb875cbfda0aecebd96dbf97b0c31845c2ff2e69))
+
+
+### Bug Fixes
+
+* remove test.js ([c58db1a](https://github.com/Yuvalke/playkit-common/commit/c58db1aac081c4b0cb480fc1b31517b01b47eb27))
 
 <a name="1.5.4"></a>
 ## [1.5.4](https://github.com/Yuvalke/playkit-common/compare/v1.5.3...v1.5.4) (2020-09-03)
