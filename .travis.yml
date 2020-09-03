@@ -33,3 +33,4 @@ jobs:
       if: tag IS present
       script:
         - conventional-github-releaser -p angular -t $GH_NOTE_TOKEN
+        
