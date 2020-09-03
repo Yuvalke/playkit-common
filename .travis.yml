@@ -37,6 +37,8 @@ jobs:
       deploy:
         provider: script
         script: echo "deploy"
+        on:
+          tags: true
+          all_branches: true
       after_deploy:
         - echo "finish"
-        
