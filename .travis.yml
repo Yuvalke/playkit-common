@@ -34,13 +34,3 @@ jobs:
       if: tag IS present
       before_deploy:
         - conventional-github-releaser -t $GH_NOTE_TOKEN
-      deploy:
-        - provider: releases
-          api_key: $GH_NOTE_TOKEN
-          file_glob: true
-          file: dist/*
-          prerelease: true
-          skip_cleanup: true
-          on:
-            branch: master
-            tags: true
