@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/Yuvalke/playkit-common/compare/v1.7.0...v1.8.0) (2020-09-03)
+
+
+### Features
+
+* delete branch ([c6fa930](https://github.com/Yuvalke/playkit-common/commit/c6fa930c4e3b2bf962e74b54dbcb61b0d3558913))
+
+
+### Bug Fixes
+
+* add space ([251ada0](https://github.com/Yuvalke/playkit-common/commit/251ada0cba5b354e7919bdf56ef16eb3f63c7dc0))
+
 ## [1.7.0](https://github.com/Yuvalke/playkit-common/compare/v1.6.0...v1.7.0) (2020-09-03)
 
 
