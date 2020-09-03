@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.14.0](https://github.com/Yuvalke/playkit-common/compare/v1.13.0...v1.14.0) (2020-09-03)
+
+
+### Features
+
+* update version to 3.1.3 ([0311ff5](https://github.com/Yuvalke/playkit-common/commit/0311ff51930569c77ef645cbbe9e118d44e2711d))
+
 ## [1.13.0](https://github.com/Yuvalke/playkit-common/compare/v1.12.0...v1.13.0) (2020-09-03)
 
 
