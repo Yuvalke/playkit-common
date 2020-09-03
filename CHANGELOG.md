@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.16.0](https://github.com/Yuvalke/playkit-common/compare/v1.15.0...v1.16.0) (2020-09-03)
+
+
+### Features
+
+* test ([b0b50af](https://github.com/Yuvalke/playkit-common/commit/b0b50afa56457e8d32608321c35c165ec9e5c687))
+
+
+### Bug Fixes
+
+* add preset ([b3091fd](https://github.com/Yuvalke/playkit-common/commit/b3091fd12c33d5ffd4379576f4a5e7bb8c5304a2))
+
 ## [1.15.0](https://github.com/Yuvalke/playkit-common/compare/v1.14.0...v1.15.0) (2020-09-03)
 
 
