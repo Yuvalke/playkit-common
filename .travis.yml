@@ -31,9 +31,5 @@ jobs:
     - stage: Release
       name: "Releasing a new version"
       if: tag IS present
-      deploy:
-        provider: script
-        script: yarn run conventional-github-releaser -t "$GH_NOTE_TOKEN"
-        on:
-          tags: true
-          all_branches: true
+      script:
+        - conventional-github-releaser -t $GH_NOTE_TOKEN
