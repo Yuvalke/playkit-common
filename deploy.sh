@@ -1,6 +1,8 @@
 #!/bin/bash
 currentVersion=$(npx -c 'echo "$npm_package_version"')
-packageNameSuffix=${$(npx -c 'echo "$npm_package_name"')##*-}
+repoName=$(npx -c 'echo "$npm_package_name"')
+packageNameSuffix="${repoName##*-}"
+echo "$TRAVIS_BRANCH"
 echo "$currentVersion"
 echo "$packageNameSuffix"
 echo "$1"

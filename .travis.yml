@@ -33,13 +33,4 @@ jobs:
       if: tag IS present
       deploy:
         - provider: script
-          on:
-            branch: master
-            tags: true
-          script: bash deploy.sh master test1
-        - provider: script
-          on:
-            all_branches: true
-            condition: $TRAVIS_BRANCH != master
-            tags: true
-          script: bash deploy.sh $TRAVIS_BRANCH test2
+          script: bash deploy.sh "test1" "$TRAVIS_BRANCH"
