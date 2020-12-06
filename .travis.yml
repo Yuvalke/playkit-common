@@ -33,4 +33,7 @@ jobs:
       if: tag IS present
       deploy:
         - provider: script
+          on:
+            all_branches: true
+            tags: true
           script: bash deploy.sh "test1" "$TRAVIS_BRANCH"
