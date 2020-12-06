@@ -31,8 +31,18 @@ jobs:
     - stage: Release
       name: "Releasing a new version"
       if: tag IS present
-      script:
-        - conventional-github-releaser -p angular -t $GH_NOTE_TOKEN
-        - echo $TRAVIS_BRANCH
-        - echo $TRAVIS_TAG
-        - echo $GIT_BRANCH
+      - provider: script
+        on:
+          branch: master
+          tags: true
+        script:
+          - echo "$TRAVIS_BRANCH"
+          - echo "master"
+      - provider: script
+        on:
+          all_branches: true
+          condition: $TRAVIS_BRANCH != master
+          tags: true
+        script:
+          - echo "$TRAVIS_BRANCH"
+          - echo "no master"
