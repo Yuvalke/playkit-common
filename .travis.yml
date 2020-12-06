@@ -31,18 +31,15 @@ jobs:
     - stage: Release
       name: "Releasing a new version"
       if: tag IS present
-      - provider: script
-        on:
-          branch: master
-          tags: true
-        script:
-          - echo "$TRAVIS_BRANCH"
-          - echo "master"
-      - provider: script
-        on:
-          all_branches: true
-          condition: $TRAVIS_BRANCH != master
-          tags: true
-        script:
-          - echo "$TRAVIS_BRANCH"
-          - echo "no master"
+      deploy:
+        - provider: script
+          on:
+            branch: master
+            tags: true
+          script: bash deploy.sh master test1
+        - provider: script
+          on:
+            all_branches: true
+            condition: $TRAVIS_BRANCH != master
+            tags: true
+          script: bash deploy.sh $TRAVIS_BRANCH test2
