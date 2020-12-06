@@ -33,4 +33,6 @@ jobs:
       if: tag IS present
       script:
         - conventional-github-releaser -p angular -t $GH_NOTE_TOKEN
-        
+        - echo $TRAVIS_BRANCH
+        - echo $TRAVIS_TAG
+        - echo $GIT_BRANCH
