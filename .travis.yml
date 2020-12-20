@@ -23,7 +23,9 @@ install:
   - echo "${TRAVIS_EVENT_TYPE}"
   - echo "${TRAVIS_COMMIT}"
   - echo "${TRAVIS_COMMIT_MESSAGE}"
-  - if [[ "${TRAVIS_BRANCH}" = "master" ]] && [[ "${TRAVIS_EVENT_TYPE}" = "pull_request" ]] && [[ ! "${TRAVIS_COMMIT_MESSAGE}" =~ '^(chore).*(update dist)$' ]] && [[ ! "${TRAVIS_COMMIT_MESSAGE}" =~ '^chore\(release\)' ]]; then
+  - SHA=$(git show --pretty=format:%s -s HEAD)
+  - echo "${SHA}"
+  - if [[ "${TRAVIS_BRANCH}" = "master" ]] && [[ "${TRAVIS_EVENT_TYPE}" = "pull_request" ]] && [[ ! "${SHA}" =~ '^(chore).*(update dist)$' ]] && [[ ! "${SHA}" =~ '^chore\(release\)' ]]; then
       yarn upgrade @playkit-js/playkit-js@canary;
     fi
   - yarn install
