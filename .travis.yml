@@ -19,10 +19,10 @@ before_install:
   - export DISPLAY=:99.0
 
 if: branch = master AND tag IS present
-install:
+script:
   - yarn upgrade @playkit-js/playkit-js@canary
 
-script:
+after_script:
   - yarn install
 
 stages:
