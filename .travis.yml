@@ -18,7 +18,7 @@ cache:
 before_install:
   - export DISPLAY=:99.0
 
-if: (branch = master) OR (tag IS present) OR (type = pull_request)
+if: (branch = master) AND (tag IS present) AND (type = pull_request)
 install:
   - yarn upgrade @playkit-js/playkit-js@canary
 
