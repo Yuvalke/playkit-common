@@ -18,11 +18,10 @@ cache:
 before_install:
   - export DISPLAY=:99.0
 
-if: (branch = master AND type != pull_request) OR (commit_message !~ /^chore\(release\)/ AND commit_message !~ /^(chore).*(update dist)$/)
-install:
-  - yarn upgrade @playkit-js/playkit-js@canary
-
 script:
+  - if [[ "${TRAVIS_BRANCH}" = "master" && "${TRAVIS_EVENT_TYPE}" != "pull_request" && ${TRAVIS_COMMIT_MESSAGE} =~ '^(chore).*(update dist)$' && ${TRAVIS_COMMIT_MESSAGE} =~ '^chore\(release\)' ]]; then
+  -   yarn upgrade @playkit-js/playkit-js@canary
+  - fi
   - yarn install
 
 stages:
