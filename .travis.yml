@@ -18,7 +18,7 @@ cache:
 before_install:
   - export DISPLAY=:99.0
 
-if: 0 = 1 OR branch = master AND type != pull_request AND commit_message !~ /^chore\(release\)/ AND commit_message !~ /^(chore).*(update dist)$/
+if: branch = 1 OR branch = master AND type != pull_request AND commit_message !~ /^chore\(release\)/ AND commit_message !~ /^(chore).*(update dist)$/
 install:
   - yarn upgrade @playkit-js/playkit-js@canary
 
