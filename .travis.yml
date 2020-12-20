@@ -19,18 +19,26 @@ before_install:
   - export DISPLAY=:99.0
 
 script:
+  - if [[ "${TRAVIS_BRANCH}" = "master" && "${TRAVIS_EVENT_TYPE}" != "pull_request" && ${TRAVIS_COMMIT_MESSAGE} =~ '^(chore).*(update dist)$' && ${TRAVIS_COMMIT_MESSAGE} =~ '^chore\(release\)' ]]; then
+  -   yarn upgrade @playkit-js/playkit-js@canary
+  - fi
   - yarn install
 
 stages:
+  - Check
   - Release
 
 jobs:
   fast_finish: true
   include:
     # https://docs.travis-ci.com/user/build-stages/deploy-github-releases/
+    - stages: Check
+      name: "Check"
+      if: (branch = master) OR (tag IS present) OR (type = pull_request)
+      script:
+        - cat package.json
     - stage: Release
       name: "Releasing a new version"
       if: tag IS present
       script:
         - conventional-github-releaser -p angular -t $GH_NOTE_TOKEN
-        
