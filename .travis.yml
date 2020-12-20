@@ -22,35 +22,32 @@ script:
   - yarn install
 
 stages:
-  - Canary
   - Check
+  - Canary
+  - Check Canary
   - Release
 
 jobs:
   fast_finish: true
   include:
     # https://docs.travis-ci.com/user/build-stages/deploy-github-releases/
-    - stage: "Canary"
+    - stages: Check
+      name: "Check"
+      if: (branch = master) OR (tag IS present) OR (type = pull_request)
+      script:
+        - cat package.json
+    - stage: Canary
       name: "Canary"
       if: (branch = master) OR (tag IS present) OR (type = pull_request)
       script:
         - yarn upgrade @playkit-js/playkit-js@canary
         - yarn install
         - cat package.json
-    - stages:
-        - "Check"
-        - "Canary"
-        - name: "Check"
-        - if: (branch = master) OR (tag IS present) OR (type = pull_request)
-        - script:
-            - cat package.json
-    - stages:
-        - "Check"
-        - "Canary"
-        - name: "Check Canary"
-        - if: (tag IS present)
-        - script:
-            - cat package.json
+    - stage: Check Canary
+      name: "Check Canary"
+      if: (branch = master) OR (tag IS present) OR (type = pull_request)
+      script:
+        - cat package.json
     - stage: Release
       name: "Releasing a new version"
       if: tag IS present
