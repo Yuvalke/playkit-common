@@ -18,13 +18,15 @@ cache:
 before_install:
   - export DISPLAY=:99.0
 
+if: (branch = master) OR (tag IS present) OR (type = pull_request)
+install:
+  - yarn upgrade @playkit-js/playkit-js@canary
+
 script:
   - yarn install
 
 stages:
   - Check
-  - Canary
-  - Check Canary
   - Release
 
 jobs:
@@ -33,18 +35,6 @@ jobs:
     # https://docs.travis-ci.com/user/build-stages/deploy-github-releases/
     - stages: Check
       name: "Check"
-      if: (branch = master) OR (tag IS present) OR (type = pull_request)
-      script:
-        - cat package.json
-    - stage: Canary
-      name: "Canary"
-      if: (branch = master) OR (tag IS present) OR (type = pull_request)
-      script:
-        - yarn upgrade @playkit-js/playkit-js@canary
-        - yarn install
-        - cat package.json
-    - stage: Check Canary
-      name: "Check Canary"
       if: (branch = master) OR (tag IS present) OR (type = pull_request)
       script:
         - cat package.json
