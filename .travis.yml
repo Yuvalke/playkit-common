@@ -22,10 +22,11 @@ script:
   - echo "${TRAVIS_BRANCH}"
   - echo "${TRAVIS_EVENT_TYPE}"
   - echo "${TRAVIS_COMMIT_MESSAGE}"
-  - if [[ ! "${TRAVIS_COMMIT_MESSAGE}" =~ '^(chore).*(update dist)$' ]] \
+  - |
+    if [[ ! "${TRAVIS_COMMIT_MESSAGE}" =~ '^(chore).*(update dist)$' ]] \
     && [[ ! "${TRAVIS_COMMIT_MESSAGE}" =~ '^chore\(release\)' ]]; then
-  -   yarn upgrade @playkit-js/playkit-js@canary;
-  - fi
+      yarn upgrade @playkit-js/playkit-js@canary
+    fi
   - yarn install
 
 stages:
