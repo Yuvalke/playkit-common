@@ -21,7 +21,7 @@ before_install:
 install:
   - yarn upgrade @playkit-js/playkit-js@canary
 
-if: (branch = master) OR NOT(tag IS present) OR (type = pull_request)
+if: NOT((branch = master) OR NOT(tag IS present) OR (type = pull_request))
 script:
   - yarn install
 
