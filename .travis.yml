@@ -18,11 +18,11 @@ cache:
 before_install:
   - export DISPLAY=:99.0
 
-if: branch = master AND tag IS present
-script:
+if: branch = master AND type != pull_request OR NOT (commit_message !~ /^chore\(release\)/ OR commit_message !~ /^(chore).*(update dist)$/)
+install:
   - yarn upgrade @playkit-js/playkit-js@canary
 
-after_script:
+script:
   - yarn install
 
 stages:
