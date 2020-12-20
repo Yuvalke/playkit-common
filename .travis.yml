@@ -26,6 +26,7 @@ install:
       yarn upgrade @playkit-js/playkit-js@canary;
     fi
   - yarn install
+  - echo "yuval test"
 
 stages:
   - Check
