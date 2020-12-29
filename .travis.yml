@@ -29,8 +29,8 @@ jobs:
   fast_finish: true
   include:
     # https://docs.travis-ci.com/user/build-stages/deploy-github-releases/
-    - stage: Check
-      name: "Check a new version"
+    - stage: Release
+      name: "Releasing a new version"
       if: tag IS present
       deploy:
         - provider: script
@@ -44,8 +44,3 @@ jobs:
             condition: $TRAVIS_BRANCH != master
             tags: true
           script: echo "side branch"
-    - stage: Release
-      name: "Releasing a new version"
-      if: tag IS present
-      script:
-        - conventional-github-releaser -p angular -t $GH_NOTE_TOKEN
