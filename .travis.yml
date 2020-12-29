@@ -18,11 +18,10 @@ cache:
 before_install:
   - export DISPLAY=:99.0
 
-install:
+script:
   - yarn install
 
 stages:
-  - Check
   - Release
 
 jobs:
@@ -35,12 +34,13 @@ jobs:
       deploy:
         - provider: script
           on:
+            all_branches: true
             branch: master
             tags: true
-          script: echo "master"
+          script: bash deploy.sh "test1" "$TRAVIS_BRANCH" "YES"
         - provider: script
           on:
             all_branches: true
             condition: $TRAVIS_BRANCH != master
             tags: true
-          script: echo "side branch"
+          script: bash deploy.sh "test1" "$TRAVIS_BRANCH" "NO"
