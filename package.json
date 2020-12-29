@@ -1,6 +1,6 @@
 {
   "name": "playkit-common",
-  "version": "1.16.15",
+  "version": "1.16.16",
   "main": "index.js",
   "repository": "https://github.com/Yuvalke/playkit-common.git",
   "author": "Yuval keidar <yuval.keidar@kaltura.com>",
