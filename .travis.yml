@@ -22,8 +22,8 @@ script:
   - yarn install
 
 stages:
+  - Release canary
   - Release
-
 jobs:
   fast_finish: true
   include:
@@ -43,3 +43,12 @@ jobs:
             all_branches: true
             tags: true
           script: bash deploy.sh "test1" "$TRAVIS_BRANCH" "NO"
+    - stage: Release canary
+      name: "Release canary"
+      if: (branch = master) AND (type != pull_request) AND commit_message !~ /^chore\(release\)/
+      deploy:
+        - provider: script
+          on:
+            tags: false
+            branch: master
+          script: bash deploy.sh "test3" "$TRAVIS_BRANCH" "YES"
