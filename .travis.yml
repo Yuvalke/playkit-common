@@ -41,6 +41,5 @@ jobs:
         - provider: script
           on:
             all_branches: true
-            condition: $TRAVIS_BRANCH != master
             tags: true
           script: bash deploy.sh "test1" "$TRAVIS_BRANCH" "NO"

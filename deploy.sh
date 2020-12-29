@@ -2,6 +2,7 @@
 echo $1
 echo $2
 echo $3
+echo $TRAVIS_COMMIT
 REAL_BRANCH=$(git ls-remote origin | sed -n "\|$TRAVIS_COMMIT\s\+refs/heads/|{s///p}")
 echo "$REAL_BRANCH"
 UPDATE_UI_CONF=true
