@@ -20,8 +20,10 @@ before_install:
 
 script:
   - yarn install
+  - git show-branch --no-name $TRAVIS_COMMIT
 
 stages:
+  - check
   - Release canary
   - Release
 jobs:
@@ -52,3 +54,7 @@ jobs:
             tags: false
             branch: master
           script: bash deploy.sh "test3" "$TRAVIS_BRANCH" "YES"
+    - stage: check
+      name: "Check"
+      script:
+        - git show-branch --no-name $TRAVIS_COMMIT
