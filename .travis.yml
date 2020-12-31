@@ -21,6 +21,7 @@ before_install:
 script:
   - yarn install
   - git show-branch --no-name $TRAVIS_COMMIT
+  - echo "blabla"
 
 stages:
   - check
