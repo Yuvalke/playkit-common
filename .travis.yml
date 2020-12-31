@@ -58,5 +58,8 @@ jobs:
           script: bash deploy.sh "test3" "$TRAVIS_BRANCH" "YES"
     - stage: check
       name: "Check"
-      script:
-        - git show-branch --no-name $TRAVIS_COMMIT
+      deploy:
+        - provider: script
+          on:
+            all_branches: true
+          script: git show-branch --no-name $TRAVIS_COMMIT
