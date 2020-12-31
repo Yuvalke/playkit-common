@@ -18,7 +18,7 @@ cache:
 before_install:
   - export DISPLAY=:99.0
 
-script:
+install:
   - yarn install
   - echo $TRAVIS_COMMIT
   - git show-branch --no-name $TRAVIS_COMMIT
@@ -57,3 +57,9 @@ jobs:
             tags: false
             branch: master
           script: bash deploy.sh "test3" "$TRAVIS_BRANCH" "YES"
+    - stage: check
+      name: "Check"
+      script:
+        - git show-branch --no-name $TRAVIS_COMMIT
+        - echo $TRAVIS_COMMIT_MESSAGE
+        - echo "blabla"
