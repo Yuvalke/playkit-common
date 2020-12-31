@@ -20,6 +20,7 @@ before_install:
 
 install:
   - yarn install
+  - echo $TRAVIS_COMMIT
   - git show-branch --no-name $TRAVIS_COMMIT
   - echo "blabla"
   - echo $TRAVIS_COMMIT_MESSAGE
