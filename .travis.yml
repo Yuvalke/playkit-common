@@ -26,6 +26,7 @@ script:
   - echo $TRAVIS_COMMIT_MESSAGE
 
 stages:
+  - check
   - Release canary
   - Release
 jobs:
