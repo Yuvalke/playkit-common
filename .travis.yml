@@ -62,4 +62,7 @@ jobs:
         - provider: script
           on:
             all_branches: true
-          script: git show-branch --no-name $TRAVIS_COMMIT
+          script: |
+              git show-branch --no-name $TRAVIS_COMMIT
+              echo "yuval"
+              echo "blabla"
