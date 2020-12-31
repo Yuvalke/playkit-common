@@ -18,7 +18,7 @@ cache:
 before_install:
   - export DISPLAY=:99.0
 
-script:
+install:
   - yarn install
   - echo $TRAVIS_COMMIT
   - git show-branch --no-name $TRAVIS_COMMIT
