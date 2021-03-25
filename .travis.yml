@@ -27,28 +27,17 @@ stages:
 jobs:
   fast_finish: true
   include:
-    # https://docs.travis-ci.com/user/build-stages/deploy-github-releases/
-    - stage: Release
-      name: "Releasing a new version"
-      if: tag IS present
-      deploy:
-        - provider: script
-          on:
-            all_branches: true
-            branch: master
-            tags: true
-          script: bash deploy.sh "test1" "$TRAVIS_BRANCH" "YES"
-        - provider: script
-          on:
-            all_branches: true
-            tags: true
-          script: bash deploy.sh "test1" "$TRAVIS_BRANCH" "NO"
+    # publish canary package if on master
     - stage: Release canary
-      name: "Release canary"
-      if: (branch = master) AND (type != pull_request) AND commit_message !~ /^chore\(release\)/
+      if: (branch = master) AND (type != pull_request)
+      env: TRAVIS_MODE=releaseCanary
       deploy:
-        - provider: script
-          on:
-            tags: false
-            branch: master
-          script: bash deploy.sh "test3" "$TRAVIS_BRANCH" "YES"
+        provider: npm
+        edge: true
+        api_key: $NPM_TOKEN
+        email: $NPM_EMAIL
+        skip_cleanup: true
+        tag: canary
+        on:
+          tags: false
+          branch: master
