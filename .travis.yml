@@ -17,7 +17,7 @@ cache:
 
 before_install:
   - export DISPLAY=:99.0
-  - chmod +x ./scripts/travis.sh
+  - chmod +x ./travis.sh
 
 script:
   - yarn install
