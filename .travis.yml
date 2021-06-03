@@ -21,7 +21,7 @@ before_install:
   - chmod +x ./deploy.sh
 
 script:
-  - bash ./scripts/travis.sh
+  - bash ./travis.sh
 
 stages:
   - Prepare canary
