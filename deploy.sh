@@ -1,18 +1,19 @@
 #!/bin/sh
-echo $1
-echo $2
-echo $3
-echo $TRAVIS_COMMIT
+echo "=======> deploy! ${TRAVIS_MODE}"
+echo "$TRAVIS_COMMIT"
 REAL_BRANCH=$(git ls-remote origin | sed -n "\|$TRAVIS_COMMIT\s\+refs/heads/|{s///p}")
-IS_RELEASE=$(git ls-remote origin | grep "$TRAVIS_COMMIT\s\+refs/heads/release$")
-
-echo "$IS_RELEASE"
-echo "$REAL_BRANCH"
-UPDATE_UI_CONF=true
+echo "REAL_BRANCH $REAL_BRANCH"
 if [ "$REAL_BRANCH" = "master" ]; then
-  UPDATE_UI_CONF=true
+  echo "master!!!!!!"
 else
-  UPDATE_UI_CONF=false
+  echo "$REAL_BRANCH!!!!!!"
 fi
 
-echo $UPDATE_UI_CONF
+git branch --contains tags/$TRAVIS_TAG | grep -q master
+if [ $? = 0 ]; then
+  echo "master!!!!!!"
+else
+  echo "not master!!!!!!"
+fi
+
+echo "DONE!!!!!!"
