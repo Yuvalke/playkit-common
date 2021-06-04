@@ -55,8 +55,6 @@ jobs:
       env: TRAVIS_MODE=releaseCanary
       before_deploy:
         - provider: script
-          on:
-            all_branches: true
           script: bash ./before_deploy.sh
       deploy:
         - provider: script
@@ -68,3 +66,7 @@ jobs:
       if: (branch = master) OR (tag IS present) OR (type = pull_request)
       name: "Running lint"
       env: TRAVIS_MODE=lint
+      before_script:
+        - provider: script
+          if: (branch = master) AND (type != pull_request) AND commit_message !~ /^chore\(release\)/ AND commit_message !~ /^(chore).*(update dist)$/
+          script: bash ./before_deploy.sh
