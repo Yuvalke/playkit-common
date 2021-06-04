@@ -25,7 +25,6 @@ script:
   - bash ./travis.sh
 
 stages:
-  - Prepare canary
   - Tests
   - Release canary
   - Release
@@ -33,9 +32,6 @@ stages:
 jobs:
   fast_finish: true
   include:
-    # https://docs.travis-ci.com/user/build-stages/deploy-github-releases/
-    - if: (branch = master) AND (type != pull_request) AND commit_message !~ /^chore\(release\)/ AND commit_message !~ /^(chore).*(update dist)$/
-      env: yuval=prepareCanary
     # publish canary package if on master
     - stage: Release
       if: (tag IS present)
@@ -53,9 +49,6 @@ jobs:
       if: (branch = master) AND (type != pull_request) AND commit_message !~ /^chore\(release\)/ AND commit_message !~ /^(chore).*(update dist)$/
       name: 'Release canary'
       env: TRAVIS_MODE=releaseCanary
-      before_deploy:
-        - provider: script
-          script: bash ./before_deploy.sh
       deploy:
         - provider: script
           on:
@@ -66,7 +59,3 @@ jobs:
       if: (branch = master) OR (tag IS present) OR (type = pull_request)
       name: "Running lint"
       env: TRAVIS_MODE=lint
-      before_script:
-        - provider: script
-          if: (branch = master) AND (type != pull_request) AND commit_message !~ /^chore\(release\)/ AND commit_message !~ /^(chore).*(update dist)$/
-          script: bash ./before_deploy.sh
