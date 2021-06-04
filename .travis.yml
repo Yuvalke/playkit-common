@@ -19,6 +19,7 @@ before_install:
   - export DISPLAY=:99.0
   - chmod +x ./travis.sh
   - chmod +x ./deploy.sh
+  - chmod +x ./before_deploy.sh
 
 script:
   - bash ./travis.sh
@@ -52,6 +53,11 @@ jobs:
       if: (branch = master) AND (type != pull_request) AND commit_message !~ /^chore\(release\)/ AND commit_message !~ /^(chore).*(update dist)$/
       name: 'Release canary'
       env: TRAVIS_MODE=releaseCanary
+      before_deploy:
+        - provider: script
+          on:
+            all_branches: true
+          script: bash ./before_deploy.sh
       deploy:
         - provider: script
           on:
