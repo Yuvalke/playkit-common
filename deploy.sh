@@ -9,11 +9,4 @@ else
   echo "$REAL_BRANCH!!!!!!"
 fi
 
-git branch --contains tags/$TRAVIS_TAG | grep -q master
-if [ $? = 0 ]; then
-  echo "master!!!!!!"
-else
-  echo "not master!!!!!!"
-fi
-
 echo "DONE!!!!!!"
