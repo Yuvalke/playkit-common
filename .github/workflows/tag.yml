@@ -29,11 +29,15 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '12'
           registry-url: 'https://registry.npmjs.org'
 
       - name: install packages
-        run: yarn install
+        run: |
+          yarn install
+          npm --version
+          node --version
+          yarn --version
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
@@ -49,6 +53,4 @@ jobs:
       # publish to NPM -> there is one caveat, continue reading for the fix
       - name: publish NPM
         run: |
-          git push --follow-tags
           npm publish
-          echo ${{ github.ref }}
