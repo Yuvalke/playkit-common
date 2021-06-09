@@ -43,6 +43,7 @@ jobs:
           git_branch=${GITHUB_REF#refs/heads/}
           echo $git_hash
           echo $git_branch
+          git branch --show-current
 
 
       - name: Build
