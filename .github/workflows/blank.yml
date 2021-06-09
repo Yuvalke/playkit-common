@@ -39,8 +39,12 @@ jobs:
         run: yarn install --check-files
 
       - name: Branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        run: echo running on branch ${GITHUB_REF##*/}
+
+      - name: Prints the current branch name
+          run: echo "${GITHUB_BRANCH##*/}"
+          env:
+            GITHUB_BRANCH: ${{ github.ref }}
 
       - name: Build
         run: echo "Build new version"
