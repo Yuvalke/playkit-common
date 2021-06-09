@@ -38,13 +38,20 @@ jobs:
       - name: Install dependencies
         run: yarn install --check-files
 
-      - name: Branch name
-        run: echo running on branch ${GITHUB_REF##*/}
+      - name: Extract branch name
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
 
-      - name: Prints the current branch name
-          run: echo "${GITHUB_BRANCH##*/}"
-          env:
-            GITHUB_BRANCH: ${{ github.ref }}
+      # extract branch name on pull request
+      - name: Print branch name
+        if: github.event_name == 'pull_request'
+        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_HEAD_REF})"
+
+      # print branch name
+      - name: Get branch name
+        run: echo 'The branch name is' $BRANCH_NAME
 
       - name: Build
         run: echo "Build new version"
