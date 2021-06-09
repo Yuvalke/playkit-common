@@ -93,7 +93,6 @@ jobs:
           rm CHANGELOG.mdE
 
       - name: deploy NPM
-        run: |
-          npm publish --tag canary
+        run: npm publish --access public --tag canary
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
