@@ -63,5 +63,5 @@ jobs:
       # publish to NPM -> there is one caveat, continue reading for the fix
       - name: publish NPM
         run: |
-          git push --follow-tags
+          git push
           npm publish --access public
