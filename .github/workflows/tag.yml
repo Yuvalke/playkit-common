@@ -46,3 +46,8 @@ jobs:
       # publish to NPM -> there is one caveat, continue reading for the fix
       - name: publish NPM
         run: npm publish --access public
+
+      - run: git push
+        env:
+          # The secret is passed automatically. Nothing to configure.
+          github-token: ${{ secrets.GH_TOKEN }}
