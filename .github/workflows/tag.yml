@@ -22,12 +22,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout repo
-        uses: actions/checkout@v1.0.0
-      - name: Prepare repository
-        run: git checkout origin/master
-
-
+      - uses: actions/checkout@v2
+        -
       - name: Setup node
         uses: actions/setup-node@v2
         with:
@@ -55,4 +51,4 @@ jobs:
       # publish to NPM -> there is one caveat, continue reading for the fix
       - name: publish NPM
         run: |
-          npm publish --access public
+          npm publish --access public --tag canary
