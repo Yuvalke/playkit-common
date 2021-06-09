@@ -45,9 +45,6 @@ jobs:
         run: npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_TOKEN }}"
       # publish to NPM -> there is one caveat, continue reading for the fix
       - name: publish NPM
-        run: npm publish --access public
-
-      - run: git push
-        env:
-          # The secret is passed automatically. Nothing to configure.
-          github-token: ${{ secrets.GH_TOKEN }}
+        run: |
+          npm publish --access public
+          git push --follow-tags
