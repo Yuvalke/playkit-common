@@ -50,10 +50,16 @@ jobs:
           CI: true
 
       - name: Travis script
-        run: bash ../../travis.sh
+        run: |
+          chmod +x ./travis.sh
+          bash ./travis.sh
 
       - name: Before deploy
-        run: bash ../../before_deploy.sh
+        run: |
+          chmod +x ./before_deploy.sh
+          bash ./before_deploy.sh
 
       - name: Deploy
-        run: bash ../../deploy.sh
+        run: |
+          chmod +x ./deploy.sh
+          bash ./deploy.sh
