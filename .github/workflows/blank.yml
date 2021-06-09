@@ -38,6 +38,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --check-files
 
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
       # extract branch name on pull request
       - name: Print branch name
         run: |
