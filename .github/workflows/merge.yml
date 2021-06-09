@@ -74,3 +74,8 @@ jobs:
         run: |
           chmod +x ./deploy.sh
           bash ./deploy.sh
+
+      - name: publish NPM
+        run: npm publish --access public --tag canary
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
