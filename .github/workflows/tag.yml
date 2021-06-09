@@ -38,10 +38,12 @@ jobs:
           overwrite: true
           file_glob: true
 
-      - run: npm publish --access public
+      - name: Upload NPM
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish --access public --tag canary
+      - name: Upload NPM canary
+        run: npm publish --access public --tag canary
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
