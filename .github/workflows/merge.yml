@@ -94,8 +94,6 @@ jobs:
 
       - name: deploy NPM
         run: |
-          currentVersion=$(npx -c 'echo "$npm_package_version"')
-          packageName=$(npx -c 'echo "$npm_package_name"')
-          npm dist-tag add $packageName@$currentVersion canary
+          npm publish --tag canary
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
