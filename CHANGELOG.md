@@ -2,97 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.16.72](https://github.com/Yuvalke/playkit-common/compare/v1.16.67...v1.16.72) (2021-06-09)
+### [1.16.71](https://github.com/Yuvalke/playkit-common/compare/v1.16.70...v1.16.71) (2021-06-09)
 
-### [1.16.67](https://github.com/Yuvalke/playkit-common/compare/v1.16.66...v1.16.67) (2021-06-09)
+### [1.16.70](https://github.com/Yuvalke/playkit-common/compare/v1.16.69...v1.16.70) (2021-06-09)
 
-### [1.16.66](https://github.com/Yuvalke/playkit-common/compare/v1.16.65...v1.16.66) (2021-06-09)
+### [1.16.69](https://github.com/Yuvalke/playkit-common/compare/v1.16.22...v1.16.69) (2021-06-09)
 
-### [1.16.65](https://github.com/Yuvalke/playkit-common/compare/v1.16.64...v1.16.65) (2021-06-09)
-
-### [1.16.64](https://github.com/Yuvalke/playkit-common/compare/v1.16.63...v1.16.64) (2021-06-09)
-
-### [1.16.63](https://github.com/Yuvalke/playkit-common/compare/v1.16.62...v1.16.63) (2021-06-09)
-
-### [1.16.62](https://github.com/Yuvalke/playkit-common/compare/v1.16.61...v1.16.62) (2021-06-09)
-
-### [1.16.61](https://github.com/Yuvalke/playkit-common/compare/v1.16.60...v1.16.61) (2021-06-09)
-
-### [1.16.60](https://github.com/Yuvalke/playkit-common/compare/v1.16.59...v1.16.60) (2021-06-09)
-
-### [1.16.59](https://github.com/Yuvalke/playkit-common/compare/v1.16.58...v1.16.59) (2021-06-09)
-
-### [1.16.58](https://github.com/Yuvalke/playkit-common/compare/v1.16.57...v1.16.58) (2021-06-09)
-
-### [1.16.57](https://github.com/Yuvalke/playkit-common/compare/v1.16.56...v1.16.57) (2021-06-09)
-
-### [1.16.56](https://github.com/Yuvalke/playkit-common/compare/v1.16.55...v1.16.56) (2021-06-09)
-
-### [1.16.55](https://github.com/Yuvalke/playkit-common/compare/v1.16.54...v1.16.55) (2021-06-09)
-
-### [1.16.54](https://github.com/Yuvalke/playkit-common/compare/v1.16.53...v1.16.54) (2021-06-09)
-
-### [1.16.53](https://github.com/Yuvalke/playkit-common/compare/v1.16.52...v1.16.53) (2021-06-09)
-
-### [1.16.52](https://github.com/Yuvalke/playkit-common/compare/v1.16.51...v1.16.52) (2021-06-09)
-
-### [1.16.51](https://github.com/Yuvalke/playkit-common/compare/v1.16.50...v1.16.51) (2021-06-09)
-
-### [1.16.50](https://github.com/Yuvalke/playkit-common/compare/v1.16.49...v1.16.50) (2021-06-09)
-
-### [1.16.49](https://github.com/Yuvalke/playkit-common/compare/v1.16.48...v1.16.49) (2021-06-09)
-
-### [1.16.48](https://github.com/Yuvalke/playkit-common/compare/v1.16.47...v1.16.48) (2021-06-09)
-
-### [1.16.47](https://github.com/Yuvalke/playkit-common/compare/v1.16.46...v1.16.47) (2021-06-09)
-
-### [1.16.46](https://github.com/Yuvalke/playkit-common/compare/v1.16.45...v1.16.46) (2021-06-09)
-
-### [1.16.45](https://github.com/Yuvalke/playkit-common/compare/v1.16.44...v1.16.45) (2021-06-09)
-
-### [1.16.44](https://github.com/Yuvalke/playkit-common/compare/v1.16.43...v1.16.44) (2021-06-09)
-
-### [1.16.43](https://github.com/Yuvalke/playkit-common/compare/v1.16.42...v1.16.43) (2021-06-09)
-
-### [1.16.42](https://github.com/Yuvalke/playkit-common/compare/v1.16.41...v1.16.42) (2021-06-09)
-
-### [1.16.41](https://github.com/Yuvalke/playkit-common/compare/v1.16.40...v1.16.41) (2021-06-09)
-
-### [1.16.40](https://github.com/Yuvalke/playkit-common/compare/v1.16.39...v1.16.40) (2021-06-09)
-
-### [1.16.39](https://github.com/Yuvalke/playkit-common/compare/v1.16.38...v1.16.39) (2021-06-09)
-
-### [1.16.38](https://github.com/Yuvalke/playkit-common/compare/v1.16.37...v1.16.38) (2021-06-09)
-
-### [1.16.37](https://github.com/Yuvalke/playkit-common/compare/v1.16.36...v1.16.37) (2021-06-09)
-
-### [1.16.36](https://github.com/Yuvalke/playkit-common/compare/v1.16.35...v1.16.36) (2021-06-09)
-
-### [1.16.35](https://github.com/Yuvalke/playkit-common/compare/v1.16.34...v1.16.35) (2021-06-09)
-
-### [1.16.34](https://github.com/Yuvalke/playkit-common/compare/v1.16.33...v1.16.34) (2021-06-09)
-
-### [1.16.33](https://github.com/Yuvalke/playkit-common/compare/v1.16.32...v1.16.33) (2021-06-09)
-
-### [1.16.32](https://github.com/Yuvalke/playkit-common/compare/v1.16.31...v1.16.32) (2021-06-09)
-
-### [1.16.31](https://github.com/Yuvalke/playkit-common/compare/v1.16.30...v1.16.31) (2021-06-09)
-
-### [1.16.30](https://github.com/Yuvalke/playkit-common/compare/v1.16.29...v1.16.30) (2021-06-09)
-
-### [1.16.29](https://github.com/Yuvalke/playkit-common/compare/v1.16.28...v1.16.29) (2021-06-09)
-
-### [1.16.28](https://github.com/Yuvalke/playkit-common/compare/v1.16.27...v1.16.28) (2021-06-09)
-
-### [1.16.27](https://github.com/Yuvalke/playkit-common/compare/v1.16.26...v1.16.27) (2021-06-09)
-
-### [1.16.26](https://github.com/Yuvalke/playkit-common/compare/v1.16.25...v1.16.26) (2021-06-09)
-
-### [1.16.25](https://github.com/Yuvalke/playkit-common/compare/v1.16.24...v1.16.25) (2021-06-09)
-
-### [1.16.24](https://github.com/Yuvalke/playkit-common/compare/v1.16.23...v1.16.24) (2021-06-09)
-
-### [1.16.23](https://github.com/Yuvalke/playkit-common/compare/v1.16.22...v1.16.23) (2021-06-09)
+### [1.16.67](https://github.com/Yuvalke/playkit-common/compare/v1.16.22...v1.16.67) (2021-06-09)
 
 ### [1.16.22](https://github.com/Yuvalke/playkit-common/compare/v1.16.21...v1.16.22) (2021-06-09)
 
