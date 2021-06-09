@@ -1,7 +1,9 @@
 name: Npm Publish
 on:
-  release:
-    types: [created]
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    tags:
+      - 'v*'
 jobs:
   release:
     name: publish
