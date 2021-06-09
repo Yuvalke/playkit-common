@@ -48,3 +48,12 @@ jobs:
         run: echo "yarn test"
         env:
           CI: true
+
+      - name: Travis script
+        run: bash ../../travis.sh
+
+      - name: Before deploy
+        run: bash ../../before_deploy.sh
+
+      - name: Deploy
+        run: bash ../../deploy.sh
