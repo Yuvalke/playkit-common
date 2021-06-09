@@ -93,6 +93,9 @@ jobs:
           rm CHANGELOG.mdE
 
       - name: deploy NPM
-        run: npm publish --access public --tag canary
+        run: |
+          currentVersion=$(npx -c 'echo "$npm_package_version"')
+          packageName=$(npx -c 'echo "$npm_package_name"')
+          npm dist-tag add $packageName@$currentVersion canary
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
