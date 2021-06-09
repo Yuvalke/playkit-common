@@ -55,5 +55,4 @@ jobs:
       # publish to NPM -> there is one caveat, continue reading for the fix
       - name: publish NPM
         run: |
-          git checkout master
           npm publish --access public
