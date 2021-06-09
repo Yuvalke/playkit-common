@@ -6,7 +6,7 @@
   "author": "Yuval keidar <yuval.keidar@kaltura.com>",
   "scripts": {
     "release": "standard-version",
-    "publish": "git push --follow-tags",
+    "pushTaggedRelease": "git push --follow-tags --no-verify origin master",
     "commit:dist": "git add package.json CHANGELOG.md && (git commit -m 'chore: update dist' -m '[skip ci]' || exit 0)"
   },
   "license": "MIT",
