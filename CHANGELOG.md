@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.16.67](https://github.com/Yuvalke/playkit-common/compare/v1.16.22...v1.16.67) (2021-06-09)
+
 ### [1.16.22](https://github.com/Yuvalke/playkit-common/compare/v1.16.21...v1.16.22) (2021-06-09)
 
 ### [1.16.21](https://github.com/Yuvalke/playkit-common/compare/v1.16.20...v1.16.21) (2021-06-04)
