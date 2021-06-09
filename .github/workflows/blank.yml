@@ -38,6 +38,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --check-files
 
+      - name: Branch name
+        run: echo running on branch ${GITHUB_REF##*/}
+
       - name: Build
         run: echo "Build new version"
 
