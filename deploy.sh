@@ -6,6 +6,7 @@ REAL_BRANCH=$(git ls-remote origin | sed -n "\|$git_hash\s\+refs/heads/|{s///p}"
 REAL_BRANCH1=$(git ls-remote origin | sed -n "\|$GITHUB_SHA\s\+refs/heads/|{s///p}")
 echo "REAL_BRANCH $REAL_BRANCH"
 echo "REAL_BRANCH1 $REAL_BRANCH1"
+echo "First parameter $1"
 if [ "$REAL_BRANCH" = "master" ]; then
   echo "master!!!!!!"
 else
