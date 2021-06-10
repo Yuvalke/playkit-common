@@ -40,8 +40,8 @@ jobs:
 
       - name: print commit message
         run: |
-          echo toJSON(github.event.commits.*.message)
-          echo github.event.commits[0].message
+          echo ${{ toJSON(github.event.commits.*.message) }}
+          echo ${{ github.event.commits[0].message }}
 
 #      - name: Install dependencies
 #        run: yarn install --check-files
