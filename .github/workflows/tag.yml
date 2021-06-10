@@ -22,7 +22,12 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-
+      - name: get Brnach from tag
+        run: |
+          git_hash=$(git rev-parse --short "$GITHUB_SHA")
+          REAL_BRANCH=$(git ls-remote origin | sed -n "\|$git_hash\s\+refs/heads/|{s///p}")
+          echo "REAL_BRANCH $REAL_BRANCH"
+          
       - name: Get branch names
         id: branch-name
         uses: tj-actions/branch-names@v4.3
