@@ -20,12 +20,18 @@ jobs:
 #    if: "!contains(github.event.commits[0].message, '[skip ci]')"
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'chore')"
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+
+      - id: log
+        run: echo "::set-output name=message::$(git log --no-merges -1 --oneline)"
+
+      - name: Print node and yarn versions
+        run: |
+          echo ${{steps.log.outputs.message}}
 
       - name: Setup node
         uses: actions/setup-node@v2
