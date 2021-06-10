@@ -75,8 +75,8 @@ jobs:
       - name: Deploy
         run: |
           chmod +x ./deploy.sh
-          bash ./deploy.sh ${{secrets.NPM_TOKEN}}
-          
+          bash ./scripts/deploy.sh ${{secrets.NPM_TOKEN}}
+
 #      - name: set canary version NPM
 #        run: |
 #          echo "Run standard-version"
