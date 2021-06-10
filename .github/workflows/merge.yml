@@ -31,8 +31,8 @@ jobs:
 
       - name: Print node and yarn versions
         run: |
-          echo $(git show -s --format=%B ${{$GITHUB_SHA}})
-          echo $(git rev-list --format=%B --max-count=1 ${{$GITHUB_SHA}})
+          echo $(git show -s --format=%B ${{GITHUB_SHA}})
+          echo $(git rev-list --format=%B --max-count=1 ${{GITHUB_SHA}})
 
       - name: Setup node
         uses: actions/setup-node@v2
