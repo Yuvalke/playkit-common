@@ -77,7 +77,7 @@ jobs:
           chmod +x ./deploy.sh
           bash ./deploy.sh
 
-      - mame: current_branch
+      - id: current_branch
         run: |
           if [[ "${{ github.ref }}" != "refs/tags/"* ]]; then
             if [[ ${{ github.event_name }} == 'pull_request' ]]; then
