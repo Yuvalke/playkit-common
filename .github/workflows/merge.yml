@@ -7,8 +7,8 @@ on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
-#  pull_request:
-#    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -17,6 +17,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+#    if: "!contains(github.event.commits[0].message, '[skip ci]')"
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -25,76 +26,91 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - id: log
+        run: echo "::set-output name=message::$(git log --no-merges -1 --oneline)"
+
+      - name: Print node and yarn versions
+        run: |
+          echo $(git show -s --format=%B $GITHUB_SHA)
+          echo $(git rev-list --format=%B --max-count=1 $GITHUB_SHA)
+
       - name: Setup node
         uses: actions/setup-node@v2
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-          
+
       - name: Print node and yarn versions
         run: |
           node --version
           npm --version
           yarn --version
-      - name: Install dependencies
-        run: yarn install --check-files
 
-      # extract branch name on pull request
-      - name: Print branch name
+      - name: print commit message
         run: |
-          git_hash=$(git rev-parse --short "$GITHUB_SHA")
-          git_branch=${GITHUB_REF#refs/heads/}
-          echo $git_hash
-          echo $git_branch
-          echo $(git branch --show-current)
+          echo ${{ toJSON(github.event.commits.*.message) }}
+          echo ${{ github.event.commits[0].message }}
+          echo ${{ github.event.head_commit.message }}
+
+#      - name: Install dependencies
+#        run: yarn install --check-files
+#
+#      # extract branch name on pull request
+#      - name: Print branch name
+#        run: |
+#          git_hash=$(git rev-parse --short "$GITHUB_SHA")
+#          git_branch=${GITHUB_REF#refs/heads/}
+#          echo $git_hash
+#          echo $git_branch
+#          echo $(git branch --show-current)
 
 
       - name: Build
         run: echo "Build new version"
 
-      - name: Run ESLint
-        run: echo "yarn lint"
-        env:
-          CI: true
+#      - name: Run ESLint
+#        run: echo "yarn lint"
+#        env:
+#          CI: true
+#
+#      - name: Run tests
+#        run: echo "yarn test"
+#        env:
+#          CI: true
+#
+#      - name: Travis script
+#        run: |
+#          chmod +x ./travis.sh
+#          bash ./travis.sh
+#
+#      - name: Before deploy
+#        run: |
+#          chmod +x ./before_deploy.sh
+#          bash ./before_deploy.sh
 
-      - name: Run tests
-        run: echo "yarn test"
-        env:
-          CI: true
+#      - name: Deploy
+#        run: |
+#          chmod +x ./deploy.sh
+#          bash ./scripts/deploy.sh ${{secrets.NPM_TOKEN}}
 
-      - name: Travis script
-        run: |
-          chmod +x ./travis.sh
-          bash ./travis.sh
-
-      - name: Before deploy
-        run: |
-          chmod +x ./before_deploy.sh
-          bash ./before_deploy.sh
-
-      - name: Deploy
-        run: |
-          chmod +x ./deploy.sh
-          bash ./deploy.sh
-
-      - name: set canary version NPM
-        run: |
-          echo "Run standard-version"
-          yarn run release --prerelease canary --skip.commit=true --skip.tag=true
-          sha=$(git rev-parse --verify --short HEAD)
-          echo "Current sha ${sha}"
-          commitNumberAfterTag=$(git rev-list  `git rev-list --tags --no-walk --max-count=1`..HEAD --count)
-          echo "Number of commit from last tag ${commitNumberAfterTag}"
-          currentVersion=$(npx -c 'echo "$npm_package_version"')
-          echo "Current version ${currentVersion}"
-          newVersion=$(echo $currentVersion | sed -e "s/canary\.[[:digit:]]/canary.${commitNumberAfterTag}-${sha}/g")
-          echo "New version ${newVersion}"
-          sed -iE "s/$currentVersion/$newVersion/g" package.json
-          sed -iE "s/$currentVersion/$newVersion/g" CHANGELOG.md
-          rm package.jsonE
-          rm CHANGELOG.mdE
-
-      - name: deploy NPM
-        run: npm publish --access public --tag canary
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+#      - name: set canary version NPM
+#        run: |
+#          echo "Run standard-version"
+#          yarn run release --prerelease canary --skip.commit=true --skip.tag=true
+#          sha=$(git rev-parse --verify --short HEAD)
+#          echo "Current sha ${sha}"
+#          commitNumberAfterTag=$(git rev-list  `git rev-list --tags --no-walk --max-count=1`..HEAD --count)
+#          echo "Number of commit from last tag ${commitNumberAfterTag}"
+#          currentVersion=$(npx -c 'echo "$npm_package_version"')
+#          echo "Current version ${currentVersion}"
+#          newVersion=$(echo $currentVersion | sed -e "s/canary\.[[:digit:]]/canary.${commitNumberAfterTag}-${sha}/g")
+#          echo "New version ${newVersion}"
+#          sed -iE "s/$currentVersion/$newVersion/g" package.json
+#          sed -iE "s/$currentVersion/$newVersion/g" CHANGELOG.md
+#          rm package.jsonE
+#          rm CHANGELOG.mdE
+#
+#      - name: deploy NPM
+#        run: npm publish --access public --tag canary
+#        env:
+#          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
