@@ -17,6 +17,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+#    if: "!contains(github.event.commits[0].message, '[skip ci]')"
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -36,46 +37,52 @@ jobs:
           node --version
           npm --version
           yarn --version
-      - name: Install dependencies
-        run: yarn install --check-files
 
-      # extract branch name on pull request
-      - name: Print branch name
+      - name: print commit message
         run: |
-          git_hash=$(git rev-parse --short "$GITHUB_SHA")
-          git_branch=${GITHUB_REF#refs/heads/}
-          echo $git_hash
-          echo $git_branch
-          echo $(git branch --show-current)
+          echo toJSON(github.event.commits.*.message)
+          echo github.event.commits[0].message
+
+#      - name: Install dependencies
+#        run: yarn install --check-files
+#
+#      # extract branch name on pull request
+#      - name: Print branch name
+#        run: |
+#          git_hash=$(git rev-parse --short "$GITHUB_SHA")
+#          git_branch=${GITHUB_REF#refs/heads/}
+#          echo $git_hash
+#          echo $git_branch
+#          echo $(git branch --show-current)
 
 
       - name: Build
         run: echo "Build new version"
 
-      - name: Run ESLint
-        run: echo "yarn lint"
-        env:
-          CI: true
+#      - name: Run ESLint
+#        run: echo "yarn lint"
+#        env:
+#          CI: true
+#
+#      - name: Run tests
+#        run: echo "yarn test"
+#        env:
+#          CI: true
+#
+#      - name: Travis script
+#        run: |
+#          chmod +x ./travis.sh
+#          bash ./travis.sh
+#
+#      - name: Before deploy
+#        run: |
+#          chmod +x ./before_deploy.sh
+#          bash ./before_deploy.sh
 
-      - name: Run tests
-        run: echo "yarn test"
-        env:
-          CI: true
-
-      - name: Travis script
-        run: |
-          chmod +x ./travis.sh
-          bash ./travis.sh
-
-      - name: Before deploy
-        run: |
-          chmod +x ./before_deploy.sh
-          bash ./before_deploy.sh
-
-      - name: Deploy
-        run: |
-          chmod +x ./deploy.sh
-          bash ./scripts/deploy.sh ${{secrets.NPM_TOKEN}}
+#      - name: Deploy
+#        run: |
+#          chmod +x ./deploy.sh
+#          bash ./scripts/deploy.sh ${{secrets.NPM_TOKEN}}
 
 #      - name: set canary version NPM
 #        run: |
