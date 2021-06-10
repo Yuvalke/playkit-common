@@ -77,20 +77,73 @@ jobs:
           chmod +x ./deploy.sh
           bash ./deploy.sh
 
-      - id: current_branch
+      - name: Get branch names
+        id: branch-name
+        uses: tj-actions/branch-names@v4.3
+
+      - name: Running on the default branch.
+        if: steps.branch-name.outputs.is_default == 'true'
         run: |
-          if [[ "${{ github.ref }}" != "refs/tags/"* ]]; then
-            if [[ ${{ github.event_name }} == 'pull_request' ]]; then
-              echo "${{ steps.branch.outputs.head_ref_branch }}"
-            else
-              echo "${{ steps.branch.outputs.ref_branch }}"
-            fi
-          else
-            REF=${{ github.ref }}
-            REF_BRANCH=${REF/refs\/tags\//}
-            echo "$REF_BRANCH"
-          fi
-        shell: bash
+          echo "Running on default: ${{ steps.branch-name.outputs.current_branch }}"
+        # Outputs: "Running on default: main".
+
+      - name: Running on a pull request branch.
+        if: steps.branch-name.outputs.is_default == 'false'
+        run: |
+          echo "Running on pr: ${{ steps.branch-name.outputs.current_branch }}"
+        # Outputs: "Running on pr: feature/test".
+
+      - name: Running on a tag branch.
+        if: steps.branch-name.outputs.is_tag == 'true'
+        run: |
+          echo "Running on tag: ${{ steps.branch-name.outputs.tag }}"
+        # Outputs: "Running on tag: v0.0.1".
+
+      - name: Running on a non tag based branch and the default branch.
+        if: steps.branch-name.outputs.is_tag == 'false' && steps.branch-name.outputs.is_default == 'true'
+        run: |
+          echo "Running on branch: ${{ steps.branch-name.outputs.current_branch }}"
+        # Outputs: "Running on branch: main".
+
+      - name: Running on a non tag based branch and a PR branch.
+        if: steps.branch-name.outputs.is_tag == 'false' && steps.branch-name.outputs.is_default == 'false'
+        run: |
+          echo "Running on branch: ${{ steps.branch-name.outputs.current_branch }}"
+        # Outputs: "Running on branch: feature/test".
+
+      - name: Current branch name
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "${{ steps.branch-name.outputs.current_branch }}"
+        # Outputs: "feature/test" current PR branch.
+
+      - name: Current branch name
+        if: github.event_name == 'push'
+        run: |
+          echo "${{ steps.branch-name.outputs.current_branch }}"
+        # Outputs: "main" the branch that triggered the push event.
+
+      - name: Get Ref brach name
+        run: |
+          echo "${{ steps.branch-name.outputs.ref_branch }}"
+        #  Outputs: "main" for non PR branches | "1/merge" for a PR branch
+
+      - name: Get Head Ref branch name
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "${{ steps.branch-name.outputs.head_ref_branch }}"
+        # Outputs: "feature/test" current PR branch.
+
+      - name: Get Base Ref branch name
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "${{ steps.branch-name.outputs.base_ref_branch }}"
+        # Outputs: "main" for main <- PR branch.
+
+      - name: Get the current tag
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          echo "${{ steps.branch-name.outputs.tag }}"
 
 #      - name: set canary version NPM
 #        run: |
